@@ -47,7 +47,13 @@
        }
 /* END VIEW a COURSE */
 
-    
+/* Signup */
+
+section.user-showcase div.card{
+    width:auto !important;
+    left:0;
+    right:0;
+}
 
 }
 
@@ -76,18 +82,7 @@
     }
 
     /* ---------USER REGISTRATION----------- */
-    section.user-showcase .card {
-        width: 100% !important;
-        position: static !important;
-    }
-
-    section.user-showcase div.overlay {
-        display: none;
-    }
-
-    section.user-showcase div.width-100 {
-        width: 100% !important;
-    }
+   
 
     /* ---------USER LOGIN----------- */
     section.login .otherColumn a,
