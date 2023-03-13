@@ -7,7 +7,7 @@
                         <h1 class="fw-bold fs-1 m-0">Begin Change Today</h1>
                     </div>
                     <div class="col-md-6">
-                        <a href="courses.html" class="btn d-block btn-warning m-0 rounded-5  text-light">Explore Courses Now</a>
+                        <a href="explore-courses.php" class="btn d-block btn-warning m-0 rounded-5  text-light">Explore Courses Now</a>
                     </div>
                 </div>
 
@@ -21,10 +21,9 @@
                 </div>
                 <div class="col-md-3">
                     <h3 class="text-white fs-4 fw-bold">Quick Links</h3>
-                    <a class="d-block text-white my-2" href="">Home</a>
-                    <a class="d-block text-white my-2" href="">Services</a>
-                    <a class="d-block text-white my-2" href="">Contact</a>
-                    <a class="d-block text-white my-2" href="">Courses</a>
+                    <a class="d-block text-white my-2" href="index.php">Home</a>
+                    <a class="d-block text-white my-2" href="explore-courses.php">Explore Courses</a>
+                    <a class="d-block text-white my-2" href="contact.php">Contact</a>
 
 
                 </div>
