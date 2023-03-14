@@ -3,6 +3,7 @@ session_start();
 if (isset($_SESSION['error'])) {
     var_dump($_SESSION['error']);
     $error = $_SESSION['error'];
+    // echo '<script>alert("' . $error . '");</script>'; // display the result in an alert window using JavaScript
     unset($_SESSION['error']);
 }
 include "includes/header.php"; ?>
@@ -58,7 +59,7 @@ include "includes/header.php"; ?>
                             <input type="submit" value="Login" name="login" class="btn btn-primary ps-4 pe-4">
                         </div>
                         <?php if (isset($error)): ?>
-                            <div class="col-md-12">
+                            <div class="col-md-12 mt-2 text-danger bg-danger-subtle" style="--bs-bg-opacity: .5;">
                                 <?php echo $error; ?>
                             </div>
                         <?php endif; ?>

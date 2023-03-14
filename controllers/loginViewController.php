@@ -21,16 +21,12 @@ if (isset($_POST['login'])) {
             header("location:../user-logged-in.php");
         }
         else{
-            $error="Invalid Email OR Password";
+            session_start();
+            $error="No Such Email Exists";
             $_SESSION['error']=$error;
             header("Location:../login.php");
             exit;
         }
     }
-    else{
-        $error="Email or Password can't be Empty";
-        $_SESSION['error']=$error;
-        header("Location:../login.php");
-        exit;
-    }
+   
 }

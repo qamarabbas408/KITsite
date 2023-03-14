@@ -1,3 +1,13 @@
+<?php
+// Check if validation errors exist
+if (isset($_GET['errors'])) {
+    // Unserialize the validation errors array
+    $errors = unserialize($_GET['errors']);
+    // Display the validation errors to the user
+
+}
+?>
+
 <?php include "includes/header.php" ?>
 <!-- navbar -->
 <?php include "includes/navigation.php" ?>
@@ -6,8 +16,8 @@
     <div class="row">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item "><a href="index.html"">Home</a></li>
-                    <li class=" breadcrumb-item active" aria-current="page">User Registration</li>
+                <li class="breadcrumb-item "><a href="index.html">Home</a></li>
+                <li class=" breadcrumb-item active" aria-current="page">User Registration</li>
             </ol>
         </nav>
     </div>
@@ -20,7 +30,7 @@
             <div class="card-body">
                 <h5 class="card-title fw-bold text-center fs-2">User Registration</h5>
                 <div class="user-reg border border-black p-4">
-                    <form action="user-logged-in.php">
+                    <form action="controllers/signupViewController.php" method="post">
                         <div class="row">
                             <div class="col-md-3">
                                 <h5 class="input-title">Name</h5>
@@ -28,11 +38,19 @@
                             <div class="col-md-9">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" required pattern="[aA-zZ]+">
-                                        <label for="" class="form-label">First Name</label>
+                                        <input type="text" name="firstName" class="form-control"
+                                             value="" required
+                                            placeholder="Enter your FirstName">
+                                        <label for="" class="form-label m-0 text-wrap">First Name</label>
+                                        <?php if (isset($errors['firstName'])): ?>
+                                            <div class="col-md-12 mb-1 text-danger text-wrap" style="font-size: 12px">
+                                                <?php echo $errors['firstName']; ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" pattern="[aA-zZ]+">
+                                        <input type="text" name="lastName" value="" class="form-control"
+                                            pattern="[aA-zZ]+">
                                         <label for="" class="form-label">Last Name</label>
                                     </div>
                                 </div>
@@ -46,9 +64,14 @@
                             <div class="col-md-9">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="email" class="form-control" placeholder="example@domain.com"
-                                            required>
-                                        <label for="" class="form-label">Email</label>
+                                        <input type="email" name="email" class="form-control"
+                                            placeholder="example@domain.com" required>
+                                        <label for="" class=" m-0 form-label">Email</label>
+                                        <?php if (isset($errors['email'])): ?>
+                                            <div class="col-md-12 mb-1 text-danger" style="font-size: 12px">
+                                                <?php echo $errors['email']; ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -61,14 +84,24 @@
                             <div class="col-md-9">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="password" class="form-control" required
+                                        <input type="password" name="password" class="form-control" required
                                             placeholder="Enter Password">
-                                        <label for="" class="form-label">Password</label>
+                                        <label for="" class=" m-0 form-label">Password</label>
+                                        <?php if (isset($errors['password'])): ?>
+                                            <div class="col-md-12 mb-1 text-danger" style="font-size: 12px">
+                                                <?php echo $errors['password']; ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="password" class="form-control" required
+                                        <input type="password" name="repeatPassword" class="form-control" required
                                             placeholder="Repeat Password">
-                                        <label for="" class="form-label">Repeat Password</label>
+                                        <label for="" class=" m-0 form-label">Repeat Password</label>
+                                        <?php if (isset($errors['repeatPassword'])): ?>
+                                            <div class="col-md-12 mb-1 text-danger" style="font-size: 12px">
+                                                <?php echo $errors['repeatPassword']; ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -82,9 +115,14 @@
                             <div class="col-md-9">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="number" class="form-control" placeholder="Enter your number"
-                                            required>
-                                        <label for="" class="form-label">Phone Number</label>
+                                        <input type="tel" id="phone" class="form-control" name="phoneNumber" required
+                                            placeholder="+92-000-0000000">
+                                        <label for="" class=" m-0 form-label">Phone Number</label>
+                                        <?php if (isset($errors['phoneNumber'])): ?>
+                                            <div class="col-md-12 mb-1 text-danger" style="font-size: 12px">
+                                                <?php echo $errors['phoneNumber']; ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -97,13 +135,18 @@
                             <div class="col-md-9">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <select name="" id="" class="form-control">
-                                            <option value="">Matriculation</option>
-                                            <option value="">Intermediate</option>
-                                            <option value="">Graduation</option>
-                                            <option value="">Other</option>
+                                        <select id="education" name="education" class="form-control" required>
+                                            <option value="">--Select Education--</option>
+                                            <option value="high-school">High School</option>
+                                            <option value="college">College</option>
+                                            <option value="university">University</option>
                                         </select>
                                     </div>
+                                    <?php if (isset($errors['education'])): ?>
+                                        <div class="col-md-12 mb-1 text-danger" style="font-size: 12px">
+                                            <?php echo $errors['education']; ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +169,7 @@
                         <div class="row ">
                             <div class="col-md-6">
                                 <input type="submit" class="btn  btn-custom bg-warning  text-uppercase "
-                                    value="Register">
+                                    value="Register" name="Register">
                             </div>
                         </div>
                     </form>

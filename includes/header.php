@@ -10,11 +10,11 @@
     <!-- Google Fonts -->
     <!-- <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"> -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="js/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
 
     <!-- My CSS -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="media-quries.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media-quries.css">
 </head>
 
 <body>

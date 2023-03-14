@@ -1,6 +1,7 @@
 <?php
-session_start();
-if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
+if (session_status() == PHP_SESSION_NONE){
+    session_start();
+}if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
     $userId = $_SESSION['user_id'];
 }
