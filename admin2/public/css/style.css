@@ -1,0 +1,28 @@
+/* Universal Classes */
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+/* Root Colors */
+:root{
+    --admin-gray:rgb(84,80,80);
+    --admin-black:#000;
+    --admin-warning:orange;
+    --admin-purple: rgb(194, 49, 163);
+    }
+/* dashboard */
+section.dashboard .icon ion-icon {
+    font-size: 45px;
+
+}
+section.dashboard .icon {
+    border: .5px solid white;
+    border-radius: 45px;
+    padding: .5em;
+}
+
+/* media queries */
+@media  (max-width: 425px) {
+ 
+}
