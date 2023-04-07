@@ -109,7 +109,7 @@ a{
 
 /* header */
 #header{
-    background:#333333;
+    background:#ddd8d8;
     color:#ffff;
     padding-bottom: 10px;
     margin-bottom:15px;
@@ -211,3 +211,11 @@ a{
   color: #ffffff;
   background-color: #21baa5;
 }
+
+/* video list */
+div.list{
+  padding: 1em;
+  background: white;
+  border: 1px solid black;
+}
+

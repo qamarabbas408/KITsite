@@ -6,6 +6,10 @@ if (isset($_SESSION['error'])) {
     // echo '<script>alert("' . $error . '");</script>'; // display the result in an alert window using JavaScript
     unset($_SESSION['error']);
 }
+if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
+    header("location:user-logged-in.php");
+}
+
 include "includes/header.php"; ?>
 <!-- navbar -->
 <?php include "includes/navigation.php" ?>

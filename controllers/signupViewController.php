@@ -1,15 +1,19 @@
 <?php
+include "../includes/phpmysqlconnect.php";
 $errors = array();
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the input values from the form
+
     $firstName = $_POST["firstName"];
     $lastName = $_POST["lastName"];
+    $username = $_POST['username'];
     $password = $_POST["password"];
     $repeatPassword = $_POST["repeatPassword"];
     $email = $_POST["email"];
     $phoneNumber = trim($_POST["phoneNumber"]);
     $education = $_POST["education"];
+    $isemployed = $_POST['isemployed'];
 
     // Initialize an array to store error messages
 
@@ -18,6 +22,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors["firstName"] = "First name is required.";
     } else if (!preg_match('/^[a-zA-Z]+$/', $firstName)) {
         $errors["firstName"] = "Can't contain Numbers";
+    }
+
+    if (empty($username)) {
+        $error['username'] = "Username is required";
+    } else if (strlen($username) >= 20) {
+        $error['username'] = "Username can't be more than 20 letters";
     }
 
     if (empty($password)) {
@@ -48,8 +58,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../signup.php?errors=$errors");
         exit;
     }
-    else{
-        
+
+    // if no validation error is found 
+    else {
+        $query = "INSERT INTO student (s_firstname, s_lastname, s_education, s_password, s_email, s_username) 
+        VALUES ('$firstName', '$lastName', '$education', '$password', '$email', '$username')";
+        // Execute the query
+        $result = mysqli_query($conn, $query);
+
+        // Check if the query was successful
+        if (mysqli_affected_rows($conn) > 0) {
+            echo "Data inserted successfully.";
+        } else {
+            echo "Data could not be inserted.";
+        }
+        // Close the database connection
+        mysqli_close($conn);
     }
 
 

@@ -8,7 +8,7 @@ if (isset($_POST['login'])) {
 
         $sql = "SELECT * FROM student WHERE s_email='$email' AND s_password='$password'";
         // $result=mysqli_query($conn,$sql);
-        $result = $conn->query($sql);
+
         $result = mysqli_query($conn,$sql);
         // Check if result is not empty
         if (mysqli_num_rows($result) == 1) {

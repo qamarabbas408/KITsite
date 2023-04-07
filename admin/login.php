@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Login</title>
-    <!-- font-awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="http://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-</head>
-
-<body>
-
+<?php include "includes/header.php"?>
     <nav class="navbar navbar-default ">
         <div class="container">
             <div class="navbar-header">
@@ -43,7 +24,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="text-center">
-                        Admin Area <small> Account Login</small>
+                        Admin Area <small class=""> Account Login</small>
                     </h1>
                 </div>
 
@@ -57,16 +38,16 @@
             <div class="row">
 
                 <div class="col-md-4 col-md-offset-4">
-                    <form action="" id="login" class="well" action="index.html">
+                    <form action="controller-admin/loginController.php" method="post" id="login" class="well" action="index.html">
                         <div class="form-group">
-                            <label for="">Email Address</label>
-                            <input type="text" class="form-control" placeholder="Enter Email">
+                            <label for="">Username</label>
+                            <input type="text" name="username" class="form-control" placeholder="Enter Password">
                         </div>
                         <div class="form-group">
                             <label for="">Password</label>
-                            <input type="text" class="form-control" placeholder="Enter Password">
+                            <input type="password" name="password"class="form-control" placeholder="Enter Password">
                         </div>
-                        <button type="submit" class="btn main-color-bg btn-block">Login</button>
+                        <input type="submit" name="login" value="Login" class="btn main-color-bg btn-block">
                     </form>
 
 

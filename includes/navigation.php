@@ -1,7 +1,8 @@
 <?php
-if (session_status() == PHP_SESSION_NONE){
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
-}if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
+}
+if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
     $userId = $_SESSION['user_id'];
 }
@@ -64,11 +65,14 @@ if (session_status() == PHP_SESSION_NONE){
                             <a class="nav-link dropdown-toggle imageHolder" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 <img src="images/testi1.jpg" class="img-fluid rounded-circle" alt="">
-                                Jambolle KHan
+                                <?php if (isset($_SESSION['user_id'])): ?>
+                                    <?php echo $_SESSION['username']; ?>
+                                <?php endif; ?>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="">Profile</a></li>
+                                <li><a class="dropdown-item" href="user-logged-in.php">Profile</a></li>
                                 <li><a class="dropdown-item" href="controllers/logoutController.php">Logout </a></li>
+                                <li><a class="dropdown-item" href="controllers/user-courses.php">My Courses </a></li>
                             </ul>
                         </li>
                     <?php else: ?>

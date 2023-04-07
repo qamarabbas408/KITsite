@@ -59,6 +59,27 @@ if (isset($_GET['errors'])) {
 
                         <div class="row">
                             <div class="col-md-3">
+                                <h5 class="input-title">Username</h5>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="text" name="username" class="form-control"
+                                        placeholder="Enter your username" required>
+                                        <label for="" class=" m-0 form-label">Username</label>
+                                        <?php if (isset($errors['username'])): ?>
+                                            <div class="col-md-12 mb-1 text-danger" style="font-size: 12px">
+                                                <?php echo $errors['username']; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-3">
                                 <h5 class="input-title">Email</h5>
                             </div>
                             <div class="col-md-9">
@@ -154,9 +175,9 @@ if (isset($_GET['errors'])) {
                         <div class="row mt-4">
                             <div class="col-md-12">
                                 <label class="input-title" for="">Are you Employeed?</label><br>
-                                <label for="" class="text-black">Yes</label> <input type="radio" name="Yes" id=""
+                                <label for="" class="text-black">Yes</label> <input type="radio" name="isemployed" required value="true" id=""
                                     class="me-4">
-                                <label for="" class="text-black">No</label> <input type="radio" name="Yes" id="">
+                                <label for="" class="text-black">No</label> <input type="radio" name="isemployed" required id="" value="false">
                             </div>
                         </div>
                         <div class="row mt-3">

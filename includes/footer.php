@@ -51,7 +51,7 @@
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <!-- phonumber lib -->
-<script src="lib/phonenumbers/phonenumberutil.js"></script>
+<!-- <script src="lib/phonenumbers/phonenumberutil.js"></script> -->
 <!-- bootstrap js -->
 <script src="lib/bootstrap/bootstrap.bundle.js"></script>
 <!-- my js -->
