@@ -1,6 +1,5 @@
 <?php 
-require_once "../includes/header.php"; ?>
-<h1 class="fs-2">Hello</h1>
-
+require_once "../includes/header.php";
+require_once "../includes/navigation.php"?>
 
 <?php require_once("../includes/footer.php"); ?>
