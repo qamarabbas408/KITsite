@@ -1,0 +1,75 @@
+/* Universal Classes */
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+/* Root Colors */
+:root{
+    --admin-gray:rgb(84,80,80);
+    --admin-black:#000;
+    --admin-warning:orange;
+    --admin-purple: rgb(194, 49, 163);
+    }
+/* Navigation */
+nav.navbar,
+nav.navbar ul.dropdown-menu {
+    background: rgb(84, 80, 80);
+}
+
+nav.navbar a {
+    color: white !important;
+}
+
+nav.navbar .active {
+    color: orange !important;
+}
+
+nav.navbar ul.navbar-nav li a:hover,
+nav.navbar ul.dropdown-menu li a:hover {
+    background: black;
+    color: orange !important;
+}
+
+nav.navbar .navbar-brand:hover {
+    color: white;
+}
+
+nav.navbar div.d-flex {
+    padding: .2em;
+}
+
+nav ul li.nav-item button {
+    background: black;
+    border-radius: 10px;
+}
+
+nav ul li.nav-item button span {
+    color: white;
+}
+
+nav ul li.nav-item button span:hover {
+    color: white;
+}
+
+nav.navbar img {
+    width: 35px;
+    margin-left: .2em;
+}
+
+/* --END Navigation== */
+    /* dashboard */
+section.dashboard .icon ion-icon {
+    font-size: 45px;
+
+}
+section.dashboard .icon {
+    border: .5px solid white;
+    border-radius: 45px;
+    padding: .5em;
+}
+
+/* media queries */
+@media  (max-width: 425px) {
+ 
+}
