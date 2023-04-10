@@ -1,55 +1,51 @@
 <section class="dashboard">
     <div class="container mt-1">
         <div class="row">
-            <div class="col-sm border shadow-sm p-3 mb-1 bg-primary text-light rounded   ">
-                <div class="d-flex align-items-center ">
-                    <div class="col-md-3 me-2">
-                        <div class="icon  text-center">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        <h2 class="fs-5">Total Students</h2>
-                        <h2 class="fw-bold">200</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm border shadow-sm p-3 mb-1 bg-warning text-light rounded   ">
-                <div class="d-flex align-items-center ">
-                    <div class="col-md-3 me-2">
-                        <div class="icon  text-center">
-                            <ion-icon name="book-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        <h2 class="fs-5">Total Courses</h2>
-                        <h2 class="fw-bold">200</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm border shadow-sm p-3 mb-1 bg-success     text-light rounded   ">
-                <div class="d-flex align-items-center ">
-                    <div class="col-md-3 me-2">
-                        <div class="icon  text-center">
-                            <ion-icon name="person-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        <h2 class="fs-5">Total Instructors</h2>
-                        <h2 class="fw-bold">200</h2>
-                    </div>
-                </div>
-            </div>
+            <?php require "analytics-dashboard.php" ?>
+            <?php require "analytics-dashboard.php" ?>
+            <?php require "analytics-dashboard.php" ?>
         </div>
     </div>
 </section>
-<section class="list mt-2 border border-primary container">
-    <div class="row">
-        <div class="col-md-4">
+<section class="list mt-2 container">
+    <div class="row p-2">
+        <div class=" col-lg-4 col-md-12 border border-warning shadow-sm p-3 mb-5 bg-body-tertiary rounded mb-md-1">
+            <div class="d-flex justify-content-between mb-2">
+                <span class="fs-5 display-1">Recent Instructors</span>
+                <a class="btn btn-info text-light fs-6 p-0 ps-1 pe-1" href="add-instructor.php">Add Instructor</a>
+            </div>
             <?php require "../includes/instructor-list.php" ?>
+            <?php require "../includes/instructor-list.php" ?>
+            <?php require "../includes/instructor-list.php" ?>
+            <?php require "../includes/instructor-list.php" ?>
+            <?php require "../includes/instructor-list.php" ?>
+            <a class="hvr-warning" href="instructor.php">View List</a>
         </div>
-        <div class="col-md-8">
-            <?php require "../includes/student-list.php" ?>
+        <div class=" col-lg-8 col-md-12 border border-warning shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
+            <span class="fs-5 display-1">Recently Enrolled Students </span>
+            <div class="table-responsive">
+                <table class=" table table-light table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Enrollment Date</th>
+                            <th scope="col">Course Enrolled</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php require "../includes/student-list.php" ?>
+                        <?php require "../includes/student-list.php" ?>
+                        <?php require "../includes/student-list.php" ?>
+                        <?php require "../includes/student-list.php" ?>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-end">
+                <a href="students.php" class="hvr-warning">View List</a>
+            </p>
         </div>
-    </div>
 </section>

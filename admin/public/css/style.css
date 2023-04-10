@@ -1,16 +1,23 @@
 /* Universal Classes */
-*{
-    padding:0;
-    margin:0;
+* {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
+
+.hvr-warning:hover {
+    color: var(--admin-warning) !important;
+}
+
 /* Root Colors */
-:root{
-    --admin-gray:rgb(84,80,80);
-    --admin-black:#000;
-    --admin-warning:orange;
+:root {
+    --admin-gray: rgb(84, 80, 80);
+    --admin-black: #000;
+    --admin-warning: orange;
     --admin-purple: rgb(194, 49, 163);
-    }
+    --admin-lightblue: rgb(178, 223, 255);
+}
+
 /* Navigation */
 nav.navbar,
 nav.navbar ul.dropdown-menu {
@@ -58,18 +65,56 @@ nav.navbar img {
 }
 
 /* --END Navigation== */
-    /* dashboard */
+/* dashboard */
 section.dashboard .icon ion-icon {
     font-size: 45px;
 
 }
+
 section.dashboard .icon {
     border: .5px solid white;
     border-radius: 45px;
     padding: .5em;
 }
 
+/* End Dashboar */
+section.list .row>div {
+    height: 65vh;
+}
+
+/* Instructor-view */
+section.instructor-view .col-lg-6 ul.list-group li>span{
+    background-color: lightblue !important;
+}
+section.instructor-view .container>.d-flex{
+    padding:0 !important;
+}
+
+
+@media (max-width:768px) {
+    section.list .row>div {
+        height: auto;
+    }
+
+}
+
 /* media queries */
-@media  (max-width: 425px) {
- 
+@media (max-width: 425px) {
+    section.instructor-view .container>.d-flex{
+        flex-wrap: wrap !important;
+    }
+    section.instructor-view .container>.d-flex>div {
+        margin:1em 0 0 0 !important;
+        width: 100%;
+    }
+    section.instructor-view .container img{
+        width: 150px;
+    }
+
+
+    /* instructor-list */
+    .list .inst-list img {
+        max-width: 50% !important;
+    }
+
 }
