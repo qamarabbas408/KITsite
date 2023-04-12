@@ -16,6 +16,7 @@
     --admin-warning: orange;
     --admin-purple: rgb(194, 49, 163);
     --admin-lightblue: rgb(178, 223, 255);
+    --admin-info: #0dcaf0;
 }
 
 /* Navigation */
@@ -83,31 +84,80 @@ section.list .row>div {
 }
 
 /* Instructor-view */
-section.instructor-view .col-lg-6 ul.list-group li>span{
+section.instructor-view .col-lg-6 ul.list-group li>span {
     background-color: lightblue !important;
 }
-section.instructor-view .container>.d-flex{
-    padding:0 !important;
+
+section.instructor-view .container>.d-flex {
+    padding: 0 !important;
 }
 
+/* add instructor */
+
+.form-style form input,
+.form-style form select {
+    font-size: 12px !important;
+    background: #f7f5f5;
+}
+
+
+.form-style form input.btn {
+    background: var(--admin-info);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.form-style form input:invalid {
+    outline-color: red !important;
+    border-color: red;
+}
+
+.form-style form input:valid {
+    border-color: greenyellow;
+}
+
+.form-style form::-webkit-input-placeholder {
+    font-size: 12px !important;
+}
+
+.form-style form input:focus,
+.form-style form select:focus {
+    box-shadow: none;
+}
+
+.form-style form label {
+    font-size: 14px;
+    color: #6c757d;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* End of Add Instructor */
+
+/* Add Course */
 
 @media (max-width:768px) {
     section.list .row>div {
         height: auto;
     }
 
+
+
 }
 
 /* media queries */
 @media (max-width: 425px) {
-    section.instructor-view .container>.d-flex{
+    section.instructor-view .container>.d-flex {
         flex-wrap: wrap !important;
     }
+
     section.instructor-view .container>.d-flex>div {
-        margin:1em 0 0 0 !important;
+        margin: 1em 0 0 0 !important;
         width: 100%;
     }
-    section.instructor-view .container img{
+
+    section.instructor-view .container img {
         width: 150px;
     }
 
