@@ -12,7 +12,7 @@ require_once "../includes/navigation.php"; ?>
                     <div class="form-group">
                         <label>Course Title</label>
                         <input type="text" name="course-title" class="form-control" id="courseTitle"
-                            placeholder="Enter Course Title">
+                            placeholder="Enter Course Title" required>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -25,55 +25,48 @@ require_once "../includes/navigation.php"; ?>
                         <input type="date" class="form-control" id="end-date">
                     </div>
                 </div>
+                <hr>
                 <div class="row form-group mb-2">
-                    <div class="col-md-2">
-                        <span class="display-6 fs-4">Course Sections</span>
-                    </div>
-                    <div class="col-md-8">
-                        <hr>
+                    <div class="col-md-12 mb-1">
+                        <span class="display-6 fs-4">Course Modules </span>
+                        <span class="fs-6 lead text-danger">**Add Course Modules Here </span>
                     </div>
                     <div id="accordion-container">
-                        <div class="accordion col-md-12 mb-1" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Section 1
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <div class="row mb-1">
-                                            <div class="form-group col-md-6">
-                                                <label for="start-date">Enter Title</label>
-                                                <input type="text" class="form-control" id="date-start">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="start-date">Upload Video</label>
-                                                <input type="file" class="form-control" id="date-start">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="start-date">Discription</label>
-                                            <textarea id="editor" name="content" class="col-md-12">
-                                        <p>This is some sample content.</p>
-                                    </textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="delete-section">
-                                    <button class="btn btn-danger delete-btn" type="button">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 mb-1 text-center">
-                        <button href="" id="add-accordion" class="btn btn-info">Add More Sections</button>
+                        <?php include "../includes/accordion.php" ?>
                     </div>
                 </div>
-                <input type="submit" value="Create Course">
+                <div class="row">
+                    <div class=" col-sm-6 text-start">
+                        <button href="" id="add-accordion" class="btn btn-outline-info btn-sm">Add More
+                            Sections</button>
+                    </div>
+                    <div class="col-sm-6 text-end">
+                        <button href="" id="delete-accordion" class="btn btn-outline-danger btn-sm ">Delete
+                            Section</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group row mb-2">
+                    <label class="col-md-3 col-form-label">Assigned Instructor</label>
+                    <div class=" col-md-9">
+                        <select class="form-select form-select-sm" aria-label="Default select example">
+                            <option selected>Select An Option</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row mb-2">
+                    <label class="col-md-3 col-form-label">Select Course Thumnail Image</label>
+                    <div class="col-md-9">
+                        <input type="file" name="" class="form-control" id="">
+                    </div>
+                </div>
+                <div class="mx-auto col-md-6 mt-4 mb-2">
+                    <input type="submit" class="btn btn-info form-control" value="Create Course">
+                </div>
             </form>
         </div>
     </div>

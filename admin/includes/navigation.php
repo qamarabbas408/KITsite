@@ -16,13 +16,13 @@
                     <a class="nav-link active" aria-current="page" href="index.php">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="courses_ad.php">Course</a>
+                    <a class="nav-link " aria-current="page" href="add-course.php">Course</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="student_ad.php">Student</a>
+                    <a class="nav-link " aria-current="page" href="students_view_ad.php">Student</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="instructor_ad.php">Instructor</a>
+                    <a class="nav-link " aria-current="page" href="add-instructor.php">Instructor</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a href=""
@@ -30,8 +30,10 @@
                     <button class="user d-lg-block d-md-none  " type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false ">
                         <div class="d-flex align-items-center  ">
-                            <span class="nav-link d-inline p-0 ">Zafar</span>
-                            <img src="../../images/testi1.jpg" class="img-fluid rounded-circle" alt="">
+                            <?php if(isset($_SESSION['username']) && isset($_SESSION['userId'])): ?>
+                            <span class="nav-link d-inline p-0 "><?= $_SESSION['username'] ?></span>
+                            <img src="../../images/testi2.jpg" class="img-fluid rounded-circle" alt="">
+                            <?php endif ?>
                         </div>
 
                     </button>

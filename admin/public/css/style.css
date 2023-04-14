@@ -35,7 +35,7 @@ nav.navbar .active {
 
 nav.navbar ul.navbar-nav li a:hover,
 nav.navbar ul.dropdown-menu li a:hover {
-    background: black;
+    background: rgb(126, 115, 115);
     color: orange !important;
 }
 
@@ -48,8 +48,8 @@ nav.navbar div.d-flex {
 }
 
 nav ul li.nav-item button {
-    background: black;
-    border-radius: 10px;
+    background-color: transparent;
+    border:none;
 }
 
 nav ul li.nav-item button span {
@@ -95,17 +95,23 @@ section.instructor-view .container>.d-flex {
 /* add instructor */
 
 .form-style form input,
-.form-style form select {
+.form-style form select, .form-style form textarea {
     font-size: 12px !important;
     background: #f7f5f5;
 }
-
+.form-style form textarea::placeholder{
+    font-size: 12px !important;
+}
 
 .form-style form input.btn {
     background: var(--admin-info);
     font-weight: 600;
     text-transform: uppercase;
     color: #fff;
+}
+.form-style form input.btn:hover{
+    background:rgb(157, 200, 231);
+    color: black;
 }
 
 .form-style form input:invalid {
@@ -134,6 +140,16 @@ section.instructor-view .container>.d-flex {
 }
 
 /* End of Add Instructor */
+/* Admin Login */
+section.login{
+    height: 100vh;
+    background:var(--admin-gray);
+}
+section.login>div{
+    height: auto; 
+    border: 1px solid white; 
+    background:#d2d3d5;
+}
 
 /* Add Course */
 
@@ -141,6 +157,7 @@ section.instructor-view .container>.d-flex {
     section.list .row>div {
         height: auto;
     }
+
 
 
 
@@ -165,6 +182,11 @@ section.instructor-view .container>.d-flex {
     /* instructor-list */
     .list .inst-list img {
         max-width: 50% !important;
+    }
+
+    /* ck-editor */
+    .ck.ck-toolbar.ck-toolbar_grouping>.ck-toolbar__items {
+        flex-wrap: wrap;
     }
 
 }
