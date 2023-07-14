@@ -1,58 +1,60 @@
 <?php
 require_once "../includes/phpmysqlconnect.php";
-$targetDir = "D:\LocalServer\htdocs\KITsite\admin\uploads\ ";
-if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['addInstructor']) {
+require "../includes/upload-file.php";
+require "../includes/validate-input.php";
+$errros = array();
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['addInstructor'])) {
     // Assign form inputs to variables
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
+    $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $phoneNumber = $_POST['phoneNumber'];
     $employmentStatus = $_POST['employmentStatus'];
-    $courseList = $_POST['courseList'];
+    $skill = $_POST['skill'];
+    $degree = $_POST['degree'];
     $aboutYourself = $_POST['aboutYourself'];
-    $profilePicture = $_FILES['profilePicture'];
-
-    $targetFile = $targetDir . basename($_FILES["profilePicture"]["name"]);
-    $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-    // Check if file already exists
-    if (file_exists($targetFile)) {
-        echo "Sorry, file already exists.";
-        exit;
+    echo $skill, $degree, $employmentStatus;
+    $fileURL = null;
+    if (isset($_FILES['imageFile'])) {
+        $fileURL = uploadFile($_FILES, $username);
     }
 
-    // Check file size
-    // 500kb or .5mb
-    if ($_FILES["profilePicture"]["size"] > 41943040) {
-        echo "Sorry, your file is too large.";
-        exit;
-    }
+    // Validate the input data
+    validateInput($firstName, 'firstName', $errors);
+    validateInput($lastName, 'lastName', $errors);
+    validateInput($username, 'username', $errors);
+    validateInput($email, 'email', $errors);
+    validateInput($password, 'password', $errors);
+    validateInput($phoneNumber, 'phoneNumber', $errors);
+    validateInput($skill, 'skill', $errors);
+    validateInput($employmentStatus, 'employmentStatus', $errors);
+    validateInput($degree,'degree', $errors);
 
-    // Move the uploaded file to the uploads directory
-    if (move_uploaded_file($_FILES["profilePicture"]["tmp_name"], $targetFile)) {
-        echo "The file " . htmlspecialchars(basename($_FILES["profilePicture"]["name"])) . " has been uploaded.";
+
+
+    // If validation errors exist, redirect back to index.html with errors parameter
+    if (!empty($errors)) {
+        $errors = serialize($errors);
+        session_start();
+        $_SESSION['errors'] = $errors;
+        header("Location: ../public/add-instructor.php");
+        exit;
     } else {
-        echo "Sorry, there was an error uploading your file.";
+        //$prepare query 
+        $sql = "INSERT INTO instructor (id, firstname, lastname, username, email,phone, password,degree,skill, profilePictureURL, empStatus, created_at, biography) 
+VALUES (NULL, '$firstName', '$lastName', '$username', '$email','$phoneNumber', '$password','$degree','$skill', '$fileURL', '$employmentStatus', NOW(), '$aboutYourself')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('New Instructor Created successfully!');</script>";
+            echo "<script>setTimeout(function(){alert('');}, 2000);</script>";
+            header("location:../public/index.php");
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            exit;
+        }
+        mysqli_close($conn);
     }
 
-
-    // // upload Images 
-    // // Check if file was uploaded
-    // if (isset($_FILES['profilePicture']) && $_FILES['profilePicture']['error'] === UPLOAD_ERR_OK) {
-    //     // process file upload
-    //     $fileName = $_FILES['profilePicture']['name'];
-    //     $fileTmpName = $_FILES['profilePicture']['tmp_name'];
-    //     $fileSize = $_FILES['profilePicture']['size'];
-    //     $fileError = $_FILES['profilePicture']['error'];
-    //     $fileType = $_FILES['profilePicture']['type'];
-    // } else {
-    //     // handle file upload error
-    //     echo " working";
-    // }
-
-
-    // process_uploaded_file($profilePicture, 'profile_pictures');
-
-    // Do something with the form data, such as insert into a database
-    // ...
 }

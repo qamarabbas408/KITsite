@@ -1,6 +1,11 @@
 <?php
 require_once "../includes/header.php";
-require_once "../includes/navigation.php"; ?>
+require_once "../includes/navigation.php";
+require_once "../includes/phpmysqlconnect.php";
+$sql = "SELECT id,firstname,lastname,email, phone, skill FROM instructor";
+$res = mysqli_query($conn, $sql);
+
+?>
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-2">
         <h2 class="display-4">Instructors</h2>
@@ -24,28 +29,34 @@ require_once "../includes/navigation.php"; ?>
                     <th scope="col"> </th>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Course Assigned</th>
+                    <th scope="col">Skill</th>
                     <th scope="col">Email</th>
                     <th scope="col">Contact</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <?php for ($i = 0; $i < 100; $i++): ?>
-                    <tr>
-                        <th><input type="checkbox" name="" id=""></th>
-                        <td scope="row">1</td>
-                        <td>Qam Abbasr</td>
-                        <td>Web Deve</td>
-                        <td>qmarabb@gmail.com</td>
-                        <td>+923111588908</td>
-                        <td>
-                            <a href="" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon></a>
-                            <a href="instructor_ad.php" class="btn btn-info text-light"><ion-icon
-                                    name="eye-outline"></ion-icon></a>
-                        </td>
-                    </tr>
-                <?php endfor ?>
+                <?php if (mysqli_num_rows($res) > 0):
+                $i=1;
+                    while ($row = mysqli_fetch_assoc($res)):
+                        ?>
+                        <tr>
+                            <th><input type="checkbox" name="" id=""></th>
+                            <td scope="row"><?= $i++ ?></td>
+                            <td><?= $row['firstname']." ".$row['lastname'] ?></td>
+                            <td><?= $row['skill'] ?></td>
+                            <td><?= $row['email'] ?></td>
+                            <td><?= $row['phone']?></td>
+                            <td>
+                                <a href="" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon></a>
+                                <a href="view_instructor.php?id=<?=$row['id']?>" class="btn btn-info text-light"><ion-icon
+                                        name="eye-outline"></ion-icon></a>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                <?php else: ?>
+
+                <?php endif; ?>
 
             </tbody>
         </table>

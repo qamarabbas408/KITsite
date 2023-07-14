@@ -2,7 +2,8 @@ $(document).ready(function () {
     var accordionCounter = 1;
     var moduleCounter = 1;
     $("#delete-accordion").hide();
-    
+    var inputModuleName = $("#moduleName");
+
     // Add new accordion section
     $("#add-accordion").click(function (event) {
         event.preventDefault();
@@ -21,6 +22,9 @@ $(document).ready(function () {
         // Set the heading text and collapse ID of the new accordion section
         var newHeading = newAccordion.find(".accordion-button");
         newHeading.text("Module " + moduleCounter);
+        inputModuleName.val("module"+moduleCounter);
+        
+        // console.log(moduleName);
         newHeading.attr("data-bs-target", "#" + newID);
 
         // Set the collapse ID of the new accordion body
@@ -29,7 +33,7 @@ $(document).ready(function () {
 
         // Clear the form inputs in the new accordion section
         newAccordion.find("input[type='text'], input[type='file'], textarea").val("");
-        
+
         // Add the new accordion section to the container
         $("#accordion-container").append(newAccordion);
 
@@ -55,4 +59,9 @@ $(document).ready(function () {
             $('#delete-accordion').hide();
         }
     });
+    
+   
+
+
+
 });

@@ -10,7 +10,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
     header("location:user-logged-in.php");
 }
 
-include "inclusdes/header.php"; ?>
+include "includes/header.php"; ?>
 <!-- navbar -->
 <?php include "includes/navigation.php" ?>
 

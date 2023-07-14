@@ -6,9 +6,6 @@
                     <div class="col-md-6">
                         <h1 class="fw-bold fs-1 m-0">Begin Change Today</h1>
                     </div>
-                    <div class="col-md-6">
-                        <a href="explore-courses.php" class="btn d-block btn-warning m-0 rounded-5  text-light">Explore Courses Now</a>
-                    </div>
                 </div>
 
             </div>

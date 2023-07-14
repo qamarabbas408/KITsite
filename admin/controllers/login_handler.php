@@ -18,7 +18,6 @@ if (isset($_POST['login'])){
             $_SESSION['errors'] = "No Such User Exists";
             header("Location:../public/login_handler.php");
             exit;
-
         }
 }
 
